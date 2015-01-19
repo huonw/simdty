@@ -1,0 +1,17 @@
+[package]
+
+name = "simdty"
+version = "0.0.1"
+authors = ["Huon Wilson <dbau.pp@gmail.com>"]
+
+homepage = "https://github.com/huonw/slow_primes"
+repository = "https://github.com/huonw/slow_primes"
+documentation = "http://huonw.github.io/slow_primes/slow_primes/"
+license = "MIT/Apache-2.0"
+keywords = ["numerics", "simd"]
+readme = "README.md"
+description = """
+"""
+
+
+build = "build.rs"
