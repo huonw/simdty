@@ -1,5 +1,6 @@
+#![feature(core, io, os, path)]
 use std::os;
-use std::io::{Writer, File};
+use std::old_io::{Writer, File};
 
 fn simd_type(w: &mut Writer, t: &str, width: u32, length: u32) {
     assert!(length >= 2);
