@@ -1,8 +1,9 @@
-#![feature(core, io, os, path)]
-use std::os;
-use std::old_io::{Writer, File};
+use std::env;
+use std::path::Path;
+use std::fs::File;
+use std::io::Write;
 
-fn simd_type(w: &mut Writer, t: &str, width: u32, length: u32) {
+fn simd_type(w: &mut Write, t: &str, width: u32, length: u32) {
     assert!(length >= 2);
     assert!(t == "f" || t == "u" || t == "i");
 
@@ -12,17 +13,18 @@ fn simd_type(w: &mut Writer, t: &str, width: u32, length: u32) {
         if !contents.is_empty() { contents.push_str(", ") }
 
         contents.push_str("pub ");
-        contents.push_str(&ty[]);
+        contents.push_str(&ty);
     }
     writeln!(w, "\
 #[simd]
-#[derive(Copy, Show)]
+#[derive(Copy, Debug)]
 /// {length} values of type {ty} in a single SIMD vector.
 pub struct {ty}x{length}({contents});", ty=ty, length=length, contents=contents).unwrap()
 }
 
 fn main() {
-    let dst = Path::new(os::getenv("OUT_DIR").unwrap());
+    let path = env::var("OUT_DIR").unwrap();
+    let dst = Path::new(&path);
     let mut out = File::create(&dst.join("types.rs")).unwrap();
     for length in [2, 4, 8, 16, 32, 64].iter().cloned() {
         for &int in ["i", "u"].iter() {
