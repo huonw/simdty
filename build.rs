@@ -1,7 +1,7 @@
 use std::env;
 use std::path::Path;
 use std::fs::File;
-use std::io::Write;
+use std::io::prelude::*;
 
 fn simd_type(w: &mut Write, t: &str, width: u32, length: u32) {
     assert!(length >= 2);
@@ -17,7 +17,7 @@ fn simd_type(w: &mut Write, t: &str, width: u32, length: u32) {
     }
     writeln!(w, "\
 #[simd]
-#[derive(Copy, Debug)]
+#[derive(Copy, Clone, Debug)]
 /// {length} values of type {ty} in a single SIMD vector.
 pub struct {ty}x{length}({contents});", ty=ty, length=length, contents=contents).unwrap()
 }
