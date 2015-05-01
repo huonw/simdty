@@ -16,3 +16,6 @@ Definitions of many SIMD types.
 
 
 build = "build.rs"
+
+[features]
+unstable = []
