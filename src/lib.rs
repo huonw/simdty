@@ -1,4 +1,4 @@
-#![feature(simd)]
+#![feature(repr_simd)]
 #![allow(non_camel_case_types)]
 
 //! Definitions of many SIMD types of fixed lengths.
