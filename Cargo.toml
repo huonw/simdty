@@ -1,8 +1,8 @@
 [package]
 
 name = "simdty"
-version = "0.0.3"
-authors = ["Huon Wilson <dbau.pp@gmail.com>"]
+version = "0.0.4"
+authors = ["Huon Wilson <dbau.pp@gmail.com>", "Avi Weinstock <aweinstock314@gmail.com>"]
 
 homepage = "https://github.com/huonw/simdty"
 repository = "https://github.com/huonw/simdty"
