@@ -9,14 +9,15 @@ fn simd_type(w: &mut Write, t: &str, width: u32, length: u32) {
 
     let ty = format!("{}{}", t, width);
     let mut contents = String::new();
-    for _ in (0..length) {
+    for _ in 0..length {
         if !contents.is_empty() { contents.push_str(", ") }
 
         contents.push_str("pub ");
         contents.push_str(&ty);
     }
     writeln!(w, "\
-#[simd]
+#[repr(C)]
+#[repr(simd)]
 #[derive(Copy, Clone, Debug)]
 /// {length} values of type {ty} in a single SIMD vector.
 pub struct {ty}x{length}({contents});", ty=ty, length=length, contents=contents).unwrap()
