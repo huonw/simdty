@@ -16,6 +16,7 @@ fn simd_type(w: &mut Write, t: &str, width: u32, length: u32) {
         contents.push_str(&ty);
     }
     writeln!(w, "\
+#[repr(C)]
 #[repr(simd)]
 #[derive(Copy, Clone, Debug)]
 /// {length} values of type {ty} in a single SIMD vector.
