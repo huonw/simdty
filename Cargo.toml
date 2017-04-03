@@ -1,12 +1,12 @@
 [package]
 
 name = "simdty"
-version = "0.0.4"
+version = "0.0.5"
 authors = ["Huon Wilson <dbau.pp@gmail.com>", "Avi Weinstock <aweinstock314@gmail.com>"]
 
-homepage = "https://github.com/huonw/simdty"
-repository = "https://github.com/huonw/simdty"
-documentation = "http://huonw.github.io/simdty/simdty/"
+homepage = "https://github.com/aweinstock314/simdty"
+repository = "https://github.com/aweinstock314/simdty"
+documentation = "https://docs.rs/simdty"
 license = "MIT/Apache-2.0"
 keywords = ["numerics", "simd"]
 readme = "README.md"
